@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git clone') {
+            steps {
+                git url: 'https://github.com/harshavardhan774/messibhauuu.git',  branch: 'main'
+            }
+        }
+        
+        stage('deploy') {
+            steps {
+                sh 'cp * /var/www/html/'
+            }
+        }
+    }
+}
